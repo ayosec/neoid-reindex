@@ -28,9 +28,9 @@ object Reindex extends App {
   try {
     loop(operations.getAllNodes)
     loop(operations.getAllRelationships)
+    tx.success()
   } finally {
-    if(tx != null)
-      tx.finish()
+    tx.finish()
 
     graph.shutdown()
   }
